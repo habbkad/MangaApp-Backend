@@ -9,6 +9,7 @@ const latestMangaList = async () => {
     let id = item.id;
     const { relationships } = item;
     const cover_url = await image_url(id, relationships);
+    console.log(cover_url);
   }
   return data;
 };
