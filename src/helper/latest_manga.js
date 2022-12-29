@@ -1,11 +1,12 @@
 const manga = require("../api/manga");
 const manga_details = require("./manga_details");
+const get_genres = require("./get_genres");
 const cover_image = require("../api/manga-cover");
 
 let id;
 let description;
 let cover_art;
-let gener;
+let genre;
 let author;
 let artist;
 let title;
@@ -26,6 +27,11 @@ const latestMangaList = async () => {
     if (desc.en) {
       description = desc.en;
     }
+
+    //get genres
+    const genres = get_genres(item);
+    genre = genres;
+    console.log(genres);
     // console.log(description);
 
     //get cover art
@@ -34,7 +40,10 @@ const latestMangaList = async () => {
     author = details.author;
 
     //All manga
-    manga_list = [...manga_list, { id, title, description, cover_art, author }];
+    manga_list = [
+      ...manga_list,
+      { id, title, description, cover_art, author, genre },
+    ];
   }
   return manga_list;
 };
