@@ -1,7 +1,7 @@
-const manga = require("../api/manga");
+const manga = require("../../api/manga");
 const manga_details = require("./manga_details");
 const get_genres = require("./get_genres");
-const cover_image = require("../api/manga-cover");
+const cover_image = require("../../api/manga-cover");
 
 let id;
 let description;
@@ -31,7 +31,6 @@ const latestMangaList = async () => {
     //get genres
     const genres = get_genres(item);
     genre = genres;
-    console.log(genres);
     // console.log(description);
 
     //get cover art

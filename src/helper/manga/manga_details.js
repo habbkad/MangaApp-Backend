@@ -1,5 +1,5 @@
-const cover_image = require("../api/manga-cover");
-const author = require("../api/manga-author");
+const cover_image = require("../../api/manga-cover");
+const author = require("../../api/manga-author");
 
 let url;
 let url_256;
