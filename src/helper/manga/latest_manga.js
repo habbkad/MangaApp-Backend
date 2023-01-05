@@ -19,7 +19,11 @@ const latestMangaList = async () => {
     id = item.id;
     const { relationships } = item;
     const { title: name } = item.attributes;
+    //get status
+    const { status } = item.attributes;
+
     const { description: desc } = item.attributes;
+
     //get title
     if (name.en) {
       title = name.en;
@@ -37,6 +41,8 @@ const latestMangaList = async () => {
     //get cover art
     const details = await manga_details(id, relationships);
     cover_art = details.images;
+
+    //get author
     author = details.author;
 
     //get chapters
@@ -45,7 +51,7 @@ const latestMangaList = async () => {
     //All manga
     manga_list = [
       ...manga_list,
-      { id, title, description, cover_art, author, genre, chapters },
+      { id, title, description, status, cover_art, author, genre, chapters },
     ];
   }
   return manga_list;
