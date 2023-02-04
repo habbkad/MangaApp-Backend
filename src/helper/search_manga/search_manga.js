@@ -18,7 +18,7 @@ const search_manga = async (manga_name) => {
   let manga_list = [];
   for (item of data.data) {
     id = item.id;
-    console.log(item);
+    // console.log(item);
     const { relationships } = item;
     const { title: name } = item.attributes;
     //get status
@@ -46,6 +46,7 @@ const search_manga = async (manga_name) => {
 
     //get author
     author = details.author;
+    console.log({ title, description, genres, cover_art });
 
     //get chapters
     const chapters = await mangaChapters(id);
@@ -56,6 +57,7 @@ const search_manga = async (manga_name) => {
       { id, title, description, status, cover_art, author, genre, chapters },
     ];
   }
+
   return manga_list;
 };
 
