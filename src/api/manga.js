@@ -8,7 +8,7 @@ console.log("gjgjhg");
 const manga = async () => {
   try {
     const { data } = await axios.get(
-      `https://api.mangadex.org/manga?limit=20`,
+      `https://api.mangadex.org/manga?limit=50`,
       {
         updatedAtSince: formated_time[0],
         includedTagsMode: "AND",

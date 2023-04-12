@@ -1,14 +1,14 @@
 const manga_collection = require("../manga/latest_manga");
 
-let action = [];
-let web_comic = [];
-let romance = [];
-let comedy = [];
-let martial_art = [];
-let isekai = [];
-let adventure = [];
-let fantasy = [];
 const get_genres = async () => {
+  let action = [];
+  let web_comic = [];
+  let romance = [];
+  let comedy = [];
+  let martial_art = [];
+  let isekai = [];
+  let adventure = [];
+  let fantasy = [];
   const manga_list = await manga_collection();
   for (item of manga_list) {
     //action genre for manga

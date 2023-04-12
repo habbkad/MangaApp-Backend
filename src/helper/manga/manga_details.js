@@ -1,11 +1,12 @@
 const cover_image = require("../../api/manga-cover");
 const author = require("../../api/manga-author");
 
-let url;
-let url_256;
-let url_512;
-let manga_author;
 const manga_details = async (id, relationships) => {
+  let url;
+  let url_256;
+  let url_512;
+  let manga_author;
+
   for (item of relationships) {
     if (item.type === "cover_art") {
       const image_id = await cover_image(item.id);
