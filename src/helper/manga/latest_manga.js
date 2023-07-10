@@ -3,7 +3,7 @@ const manga_details = require("./manga_details");
 const get_genres = require("./get_genres");
 const cover_image = require("../../api/manga-cover");
 const mangaChapters = require("../chapters/get_chapters");
-
+let manga_list = [];
 const latestMangaList = async () => {
   let id;
   let description;
@@ -13,7 +13,7 @@ const latestMangaList = async () => {
   let artist;
   let title;
   let chapters;
-  let manga_list = [];
+
   const data = await manga();
   if (data) {
     for (item of data.data) {
@@ -57,8 +57,8 @@ const latestMangaList = async () => {
 
       //All manga
       manga_list = [
-        ...manga_list,
         { id, title, description, status, cover_art, author, genre, chapters },
+        ...manga_list,
       ];
     }
   }
