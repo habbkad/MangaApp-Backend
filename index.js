@@ -22,7 +22,9 @@ app.use((req, res, next) => {
   );
   next();
 });
-app.use(cors());
+app.use(
+  cors({ origin: "https://hk-manga-git-read-manga-habbkad.vercel.app/" })
+);
 //routes
 app.use("/manga-app/api/v1", route);
 
