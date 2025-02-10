@@ -10,29 +10,13 @@ let carousel = [];
 //route   manga-app/api/v1/manga
 //req     GET
 exports.latestMangaList = async (req, res, next) => {
+  console.log("aaaaaaaa");
   try {
     const data = await latest();
     mangaList = [...data, ...mangaList];
     let manga = mangaList.filter(
       (v, i, a) => a.findIndex((v2) => v2.id === v.id) === i
     );
-    carousel = [];
-    if (data) {
-      carousel.push(mangaList[1]);
-      carousel.push(mangaList[3]);
-      carousel.push(mangaList[12]);
-      carousel.push(mangaList[4]);
-      carousel.push(mangaList[7]);
-      carousel.push(mangaList[10]);
-    }
-
-    // setInterval(async () => {
-    //   const newData = await latest();
-    //   mangaList = [...newData, ...mangaList];
-    //   manga = mangaList.filter(
-    //     (v, i, a) => a.findIndex((v2) => v2.id === v.id) === i
-    //   );
-    // }, 120000);
 
     res.status(200).json({
       status: "successful",
@@ -82,11 +66,13 @@ exports.search_manga = async (req, res, next) => {
 //route   manga-app/api/v1/chapImages
 //req     POST
 exports.chapter_images = async (req, res, next) => {
-  const { chapter_id } = req.body;
+  console.log();
+  const { id } = req.body;
 
-  const chap = await getChapterImages(chapter_id);
+  const chap = await getChapterImages(req.body.chapter_id);
 
   res.status(200).json({ status: "successful", chap });
+  console.log("deds");
   next();
 };
 //desc    get carousel chapters

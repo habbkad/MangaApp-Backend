@@ -8,7 +8,7 @@ const chapters_images = async (chapter_Id) => {
 
     return chaptersImages;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return { images: "none" };
   }
 };

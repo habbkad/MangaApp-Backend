@@ -22,9 +22,7 @@ app.use((req, res, next) => {
   );
   next();
 });
-app.use(
-  cors({ origin: "https://hk-manga-git-read-manga-habbkad.vercel.app/" })
-);
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 //routes
 app.use("/manga-app/api/v1", route);
 
@@ -33,5 +31,5 @@ const PORT = process.env.PORT || 5001;
 
 //starting server
 app.listen(PORT, () => {
-  console.log("server started");
+  console.log(`server started ${PORT}`);
 });

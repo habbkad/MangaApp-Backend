@@ -5,7 +5,7 @@ const chapImages = async (manga_Id) => {
   let imageUrls;
   if (image_data) {
     const { chapter } = image_data;
-    // console.log(chapter);
+    console.log(chapter);
     const { hash } = chapter;
 
     const { data } = chapter;
